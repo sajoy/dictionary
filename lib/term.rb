@@ -2,8 +2,9 @@ class Term
   @@all_terms = []
 
   define_method(:initialize) do |word, definition|
-    @word = word
-    @definition = definition
+    @word = word.split(", ")
+    array_of_defs = definition.split(", ")
+    @definition = array_of_defs
     @id = @@all_terms.length().+(1)
   end
 
@@ -43,14 +44,14 @@ class Term
 
   define_singleton_method(:search) do |word_to_find|
     term_found = nil
+    array = word_to_find.split()
     @@all_terms.each() do |term|
-      if term.word().eql?(word_to_find)
+      if term.word().eql?(array)
         term_found = term
       end
     end
     Term.find(term_found.id())
   end
-
 
 
 end

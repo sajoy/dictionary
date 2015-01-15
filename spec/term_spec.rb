@@ -9,8 +9,8 @@ describe(Term) do
   describe("#initialize") do
     it("creates a word and definition pair") do
       test_term = Term.new("word", "definition")
-      expect(test_term.word()).to(eq("word"))
-      expect(test_term.definition()).to(eq("definition"))
+      expect(test_term.word()).to(eq(["word"]))
+      expect(test_term.definition()).to(eq(["definition"]))
       expect(test_term.id()).to(eq(1))
     end
   end
@@ -18,14 +18,18 @@ describe(Term) do
   describe("#word") do
     it("returns the word") do
       test_term = Term.new("word", "definition")
-      expect(test_term.word()).to(eq("word"))
+      test_term1 = Term.new("berries, apples","fruit")
+      expect(test_term.word()).to(eq(["word"]))
+      expect(test_term1.word()).to(eq(["berries", "apples"]))
     end
   end
 
   describe("#definition") do
     it("returns the defintion") do
       test_term = Term.new("word", "definition")
-      expect(test_term.definition()).to(eq("definition"))
+      test_term1 = Term.new("bass", "fish, instrument")
+      expect(test_term.definition()).to(eq(["definition"]))
+      expect(test_term1.definition()).to(eq(["fish", "instrument"]))
     end
   end
 
